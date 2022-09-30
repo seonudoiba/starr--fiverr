@@ -11,7 +11,7 @@ import * as React from "react";
 import FileBase from "react-file-base64";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { createServices } from "../../actions/Services";
+
 export default function Seller() {
 	let [ServiceData, setServiceData] = useState({
 		Title: "I will",

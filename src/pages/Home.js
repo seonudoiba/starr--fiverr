@@ -1,6 +1,6 @@
 import React from "react";
-import Menu from "./Menu/Menu";
-import ShowServices from "./services/ShowServices"
+import Menu from "../components/Menu/Menu";
+import ShowServices from "../components/services/ShowServices"
 
 const Home = () => {
 	return (
