@@ -1,16 +1,30 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = { value: 0 };
+const initialState = [
+	{
+		favItems: [],
+		totalCount: 0,
+	},
+];
+// {
+// 	Title: "",
+// 	Description: "",
+// 	Category: "",
+// 	Tag: "",
+// 	SubCategory: "",
+// 	Price: 0,
+// 	Image: "",
+// };
 
 const favSlice = createSlice({
 	name: "addFav",
 	initialState,
 	reducers: {
-		increment(state) {
-			state.value++;
+		increment(state, action) {
+			state.favItems.push(action.payload);
 		},
-		decrement(state) {
-			state.value--;
+		decrement(state, action) {
+			state.favItems.pop(action.payload);
 		},
 	},
 });

@@ -1,16 +1,10 @@
 import {
-	Typography,
 	MenuItem,
 	Button,
-	CardActions,
 	TextField,
-	Box,
-	FormControl,
 } from "@material-ui/core";
 import {
 	useAddServicesMutation,
-	// useDeleteServiceMutation,
-	// useAddServiceMutation
 } from "../../features/api/apiSlice";
 import * as React from "react";
 import FileBase from "react-file-base64";
@@ -33,7 +27,6 @@ export default function Seller() {
 		e.preventDefault();
 		addServices(ServiceData);
 		e.currentTarget.disabled = true;
-		// navigate("/");
 		alert('Gigs Created sucessfully')
 		setServiceData({
 			Title: "I will",

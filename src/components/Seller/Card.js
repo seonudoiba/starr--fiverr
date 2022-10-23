@@ -38,15 +38,10 @@ export default function CardItem({ Service }) {
 	const [showFav, setshowFav] = useState(false);
 
 	const dispatch = useDispatch();
-	let favs;
-	useEffect(() => {
-		// storing input name
-		localStorage.setItem("name", JSON.stringify(name));
-	  }, [name]);
 
 	const handleFav = () => {
 		setshowFav(!showFav);
-		!showFav ? dispatch(increment()) : dispatch(decrement());
+		!showFav ? dispatch(increment(Service)) : dispatch(decrement(Service));
 	};
 
 	return (
