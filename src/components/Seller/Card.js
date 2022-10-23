@@ -10,6 +10,13 @@ import { increment, decrement } from "../../features/AddFav";
 import { useDispatch } from "react-redux";
 import { createTheme } from "@mui/material/styles";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+
+import {
+	useAddFavouritesMutation,
+	useDeleteFavouriteMutation,
+	useGetFavouritesQuery,
+} from "../../features/api/apiSlice";
 const theme = createTheme({
 	palette: {
 		secondary: {
@@ -32,13 +39,48 @@ const ExpandMore = styled((props) => {
 }));
 
 export default function CardItem({ Service }) {
-	const [showFav, setshowFav] = React.useState(false);
+	const [showFav, setshowFav] = useState(false);
+	const [press, setpress] = useState("Not Pressed");
+	// let [Data, setData] = useState({
+	// 	name: "I will dance",
+
+	// });
+	let favs;
+	const {
+		data: favourites,
+		isLoading,
+		isSuccess,
+		isError,
+		error,
+	} = useGetFavouritesQuery();
+	let deleteId;
+	if (isLoading) {
+		console.log(isLoading);
+	} else if (isSuccess) {
+		favs = favourites.data;
+		deleteId = favs.filter((fav) => {
+			return fav.fav == "633e253f8cce730edeb08590";
+		});
+	} else if (isError) {
+		console.log(isError, error);
+	}
 
 	const dispatch = useDispatch();
-
+	const [addFavourites] = useAddFavouritesMutation();
+	const [deleteFavourite] = useDeleteFavouriteMutation();
+	let cont;
 	const handleFav = () => {
-		setshowFav(!showFav);
 		!showFav ? dispatch(increment()) : dispatch(decrement());
+		press === "Pressed" && deleteId.map((del) => deleteFavourite({ id: del._id }));
+		setpress("Not Pressed");
+		press === "Not Pressed" && addFavourites({ fav: Service._id });
+		setpress("Pressed");
+		!showFav && deleteId.map((del) => (cont = <div> Helllo {del._id}</div>));
+
+		setshowFav(!showFav);
+		// alert(deleteId[0]._id)
+		// deleteFavourite({ id: deleteId[0]._id })
+		// deleteFavourite({ id: deleteId[0]._id });
 	};
 
 	return (
@@ -52,6 +94,7 @@ export default function CardItem({ Service }) {
 					alt="Paella dish"
 				/>
 			</div>
+			{/* {deleteId[0].fav}"hi" */}
 			<div>
 				<div className="flex">
 					<div className="pt-2 pl-1">

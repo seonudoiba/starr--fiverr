@@ -1,20 +1,23 @@
 import React, { useState } from "react";
 
 import ShowCategories from "./ShowCategories";
-const Category = ({category , children}) => {
+const Category = ({category }) => {
 	const [isGraphicsShown, setIsGraphicsShown] = useState(false);
 	const [mycategory, setcategory] = useState('');
-
-	let mouseleave =()=>{
+console.log(category)
+	let mouseleave = () => {
 		setIsGraphicsShown(false);
-		setcategory(category)
+		
 	}
-	
+	let mouseenter = () =>{
+		 setIsGraphicsShown(true)
+		 setcategory(category)
+	}
 
 	return (
 		<div
 			className="menu-item pb-2 hover:pb-0 hover:shadow-lg hover:cursor-pointer relative"
-			onMouseEnter={() => setIsGraphicsShown(true)}
+			onMouseEnter={mouseenter}
 			onMouseLeave={mouseleave}>
 			{category}
 			{isGraphicsShown && (

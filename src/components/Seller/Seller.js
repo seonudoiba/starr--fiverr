@@ -7,10 +7,14 @@ import {
 	Box,
 	FormControl,
 } from "@material-ui/core";
+import {
+	useAddServicesMutation,
+	// useDeleteServiceMutation,
+	// useAddServiceMutation
+} from "../../features/api/apiSlice";
 import * as React from "react";
 import FileBase from "react-file-base64";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
 
 export default function Seller() {
 	let [ServiceData, setServiceData] = useState({
@@ -22,12 +26,24 @@ export default function Seller() {
 		Price: 0,
 		Image: "",
 	});
-	console.log(ServiceData);
-	const dispatch = useDispatch();
+	const [addServices] = useAddServicesMutation();
+
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		dispatch(createServices(ServiceData));
+		addServices(ServiceData);
+		e.currentTarget.disabled = true;
+		// navigate("/");
+		alert('Gigs Created sucessfully')
+		setServiceData({
+			Title: "I will",
+			Description: "",
+			Category: "",
+			Tag: "",
+			SubCategory: "",
+			Price: 0,
+			Image: "",
+		})
 	};
 
 	return (
@@ -54,7 +70,9 @@ export default function Seller() {
 								}>
 								<MenuItem value="6326224621fe689db14745ac">Graphics & Design</MenuItem>
 								<MenuItem value="6326236b21fe689db14745be">Digital Marketing</MenuItem>
-								<MenuItem value="6333793894bebd0e0fbd6288">Writing & Translation</MenuItem>
+								<MenuItem value="6333793894bebd0e0fbd6288">
+									Writing & Translation
+								</MenuItem>
 								<MenuItem value="6333797194bebd0e0fbd6289">Programming & Tec</MenuItem>
 							</TextField>
 						</div>
@@ -69,9 +87,15 @@ export default function Seller() {
 								onChange={(e) =>
 									setServiceData({ ...ServiceData, SubCategory: e.target.value })
 								}>
-								<MenuItem value="6326225d21fe689db14745ae">Social Media Marketing</MenuItem>
-								<MenuItem value="6326239c21fe689db14745c2">Logo & Brand Identity</MenuItem>
-								<MenuItem value="633379ca94bebd0e0fbd628a">Articles & Blog Posts</MenuItem>
+								<MenuItem value="6326225d21fe689db14745ae">
+									Social Media Marketing
+								</MenuItem>
+								<MenuItem value="6326239c21fe689db14745c2">
+									Logo & Brand Identity
+								</MenuItem>
+								<MenuItem value="633379ca94bebd0e0fbd628a">
+									Articles & Blog Posts
+								</MenuItem>
 							</TextField>
 						</div>
 					</div>

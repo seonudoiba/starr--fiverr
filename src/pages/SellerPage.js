@@ -11,7 +11,7 @@ const SellerPage = () => {
 	const service = Servicesdata?.filter(checkTitle);
 
 	function checkTitle(serviceData) {
-		return serviceData.Title.replace(/ /g, "-") == title;
+		return serviceData.Title.replace(/ /g, "-") === title;
 	}
 	let Sliceservice = service?.slice();
 
@@ -39,7 +39,7 @@ const SellerPage = () => {
 						<div className="p-2  text-xl">(21 Reviews)</div>
 					</div>
 					<div className="p-1 my-12 border-2">
-						<img className='gig-img' src={`${Sliceservice[0].Image}`} />
+						<img alt= {Sliceservice[0].Title} className='gig-img' src={`${Sliceservice[0].Image}`} />
 					</div>
 					<div className="p-4 my-12 ">
 						<h2 className=" text-4xl text-left ">About This Gig</h2>
