@@ -28,8 +28,9 @@ import { useSelector } from "react-redux";
 // </li>
 
 export default function Navbar() {
-	const fav = useSelector((state) => state.addFav);
-	console.log(fav)
+	const fav1 = useSelector((state) => state.addFav);
+	console.log(fav1)
+let fav = 30;
 	const [anchorEl, setAnchorEl] = React.useState(null);
 	const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
