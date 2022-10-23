@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import ShowCategories from "./ShowCategories";
 const Category = ({category , children}) => {
-	const [isGraphicsShown, setIsGraphicsShown] = useState(false);
+	const [isGraphicsShown, setIsGraphicsShown] = useState(true);
 	const [mycategory, setcategory] = useState('');
 
 	let mouseleave =()=>{
