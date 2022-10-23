@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import ShowCategories from "./ShowCategories";
 const Category = ({category , children}) => {
@@ -9,12 +9,17 @@ const Category = ({category , children}) => {
 		setIsGraphicsShown(false);
 		setcategory(category)
 	}
-	
+	useEffect(() => {
+let mouseenter =()=>{
+
+setIsGraphicsShown(true)
+
+  }, [isGraphicsShown]);
 
 	return (
 		<div
 			className="menu-item pb-2 hover:pb-0 hover:shadow-lg hover:cursor-pointer relative"
-			onMouseEnter={() => setIsGraphicsShown(true)}
+			onMouseEnter={mouseenter}
 			onMouseLeave={mouseleave}>
 			{category}
 			{isGraphicsShown && (
