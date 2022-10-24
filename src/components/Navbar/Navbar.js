@@ -108,7 +108,7 @@ export default function Navbar() {
 			</MenuItem>
 			<MenuItem>
 				<IconButton size="large" aria-label="show 17 new notifications" color="inherit">
-					<Badge badgeContent={fav} color="error">
+					<Badge badgeContent={6} color="error">
 						<FavoriteIcon />
 					</Badge>
 				</IconButton>
