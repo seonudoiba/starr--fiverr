@@ -21,8 +21,10 @@ const favSlice = createSlice({
 	initialState,
 	reducers: {
 		increment(state, action) {
-			state.favItems.push(action.payload);
+	
+			console.log(action.payload)
 		},
+		
 		decrement(state, action) {
 			state.favItems.pop(action.payload);
 		},

@@ -39,13 +39,13 @@ export default function CardItem({ Service }) {
 
 	const dispatch = useDispatch();
 
-const fav1 = useSelector((state) => state.addFav);
+
 
 
 	const handleFav = () => {
 		setshowFav(!showFav);
 		!showFav ? dispatch(increment(Service)) : dispatch(decrement(Service));
-		alert(fav1)
+		
 };
 
 	return (
