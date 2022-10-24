@@ -11,7 +11,7 @@ import { useDispatch } from "react-redux";
 import { createTheme } from "@mui/material/styles";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-// import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 const theme = createTheme({
 	palette: {
@@ -39,10 +39,14 @@ export default function CardItem({ Service }) {
 
 	const dispatch = useDispatch();
 
+const fav1 = useSelector((state) => state.addFav);
+
+
 	const handleFav = () => {
 		setshowFav(!showFav);
 		!showFav ? dispatch(increment(Service)) : dispatch(decrement(Service));
-	};
+		alert(fav1)
+};
 
 	return (
 		<Card className="border cursor-pointer" sx={{ maxWidth: 400 }}>
