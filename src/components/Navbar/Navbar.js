@@ -28,11 +28,11 @@ import { useSelector } from "react-redux";
 // </li>
 
 export default function Navbar() {
-	const Fav = useSelector((state) => state.addFav);
+	const {count} = useSelector((state) => state.addFav);
 	const [anchorEl, setAnchorEl] = React.useState(null);
 	const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-	let fav = Fav.favItems.length
-console.log(Fav, Fav.favItems, Fav.favItems.length )
+	console.log( count)
+
 	const isMenuOpen = Boolean(anchorEl);
 	const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -108,7 +108,7 @@ console.log(Fav, Fav.favItems, Fav.favItems.length )
 			</MenuItem>
 			<MenuItem>
 				<IconButton size="large" aria-label="show 17 new notifications" color="inherit">
-					<Badge badgeContent={fav} color="error">
+					<Badge badgeContent={count} color="error">
 						<FavoriteIcon />
 					</Badge>
 				</IconButton>
@@ -160,7 +160,7 @@ console.log(Fav, Fav.favItems, Fav.favItems.length )
 							size="large"
 							aria-label="show 17 new notifications"
 							color="inherit">
-							<Badge badgeContent={fav} color="error">
+							<Badge badgeContent={count} color="error">
 								<FavoriteIcon />
 							</Badge>
 						</IconButton>

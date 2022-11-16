@@ -44,7 +44,9 @@ export default function CardItem({ Service }) {
 
 	const handleFav = () => {
 		setshowFav(!showFav);
-		!showFav ? dispatch(increment(Service)) : dispatch(decrement(Service));
+		
+		!showFav ? dispatch(increment()) : dispatch(decrement());
+		
 		
 };
 

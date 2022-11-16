@@ -2,8 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = [
 	{
-		favItems: [],
-		totalCount: 0,
+		// favItems: [],
+		count: 0,
 	},
 ];
 // {
@@ -21,12 +21,15 @@ const favSlice = createSlice({
 	initialState,
 	reducers: {
 		increment(state, action) {
-	
-			console.log(action.payload)
+			state.count += 1
+			// state.favItems = state.favItems.push(action.payload)
+			
+			// console.log(action.payload)
+			
 		},
 		
 		decrement(state, action) {
-			state.favItems.pop(action.payload);
+			state.count -= 1
 		},
 	},
 });
