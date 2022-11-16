@@ -31,7 +31,7 @@ export default function Navbar() {
 	const {count} = useSelector((state) => state.addFav);
 	const [anchorEl, setAnchorEl] = React.useState(null);
 	const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-	count =Number(count)
+	
 
 	const isMenuOpen = Boolean(anchorEl);
 	const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -108,7 +108,7 @@ export default function Navbar() {
 			</MenuItem>
 			<MenuItem>
 				<IconButton size="large" aria-label="show 17 new notifications" color="inherit">
-					<Badge badgeContent={count} color="error">
+					<Badge badgeContent={Number(count)} color="error">
 						<FavoriteIcon />
 					</Badge>
 				</IconButton>
@@ -160,7 +160,7 @@ export default function Navbar() {
 							size="large"
 							aria-label="show 17 new notifications"
 							color="inherit">
-							<Badge badgeContent={count} color="error">
+							<Badge badgeContent={Number(count)} color="error">
 								<FavoriteIcon />
 							</Badge>
 						</IconButton>
