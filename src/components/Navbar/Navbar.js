@@ -31,7 +31,7 @@ export default function Navbar() {
 	const {count} = useSelector((state) => state.addFav);
 	const [anchorEl, setAnchorEl] = React.useState(null);
 	const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-	console.log( count)
+	count =Number(count)
 
 	const isMenuOpen = Boolean(anchorEl);
 	const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
